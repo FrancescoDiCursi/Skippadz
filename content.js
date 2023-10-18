@@ -15,7 +15,8 @@ window.addEventListener('load',()=>{
             var elm= document.querySelector(".video-stream.html5-main-video")
             elm.src=""
             console.log("Unskippable skipped")
-
+            document.body.click()
+            document.body.click()
 
 
         })
@@ -37,14 +38,14 @@ window.addEventListener('load',()=>{
         console.log("Unskippable skipped")
 
 
-
     })
 
 
-
-
     document.body.click()
     document.body.click()
+
+
+
 
 
 
