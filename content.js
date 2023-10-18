@@ -1,25 +1,5 @@
-window.addEventListener('load',()=>{
+window.addEventListener("DOMContentLoaded",()=>{
     //alert("LOADED")
-    //skip the skippable
-    waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
-        elm.click()
-        console.log("Skippable skipped")
-    });
-    //hide the unskippable
-    waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
-        var elm= document.querySelector(".video-stream.html5-main-video")
-        elm.src=""
-        console.log("Unskippable skipped")
-        setTimeout(()=>{
-            var random_elm= document.querySelector("#primary")
-            try{
-                random_elm.click()
-            }catch{
-                console.log("Unskippable random elm doesn't exists")
-            }
-        },3000)
-
-    })
     //re apply promises on each click
     window.addEventListener('click',()=>{
         console.log("Promises reapplied")
@@ -30,21 +10,34 @@ window.addEventListener('load',()=>{
         });
         //hide the unskippable
         waitForElm('ytp-ad-player-overlay-instream-info').then((popup)=>{
+            var random_elm= document.querySelector("#primary")
+            random_elm.click()
+
             var elm= document.querySelector(".video-stream.html5-main-video")
             elm.src=""
             console.log("Unskippable skipped")
-            setTimeout(()=>{
-                var random_elm= document.querySelector("#primary")
-                try{
-                    random_elm.click()
-                }catch{
-                    console.log("Unskippable random elm doesn't exists")
-                }
-            },3000)
 
 
         })
     })
+
+    //only once
+    //skip the skippable
+    waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
+        elm.click()
+        console.log("Skippable skipped")
+    });
+    //hide the unskippable
+    waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
+        var random_elm= document.querySelector("#primary")
+        random_elm.click()
+        
+        var elm= document.querySelector(".video-stream.html5-main-video")
+        elm.src=""
+        console.log("Unskippable skipped")
+
+    })
+
 
 
 })
