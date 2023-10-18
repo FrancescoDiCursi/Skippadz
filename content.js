@@ -6,6 +6,18 @@ window.addEventListener('load',()=>{
         elm.click()
         console.log("AD SKIPPED")
     });
+    //re apply promise on each click
+    window.addEventListener('click',()=>{
+        console.log("PROMISE REAPPLIED")
+        waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
+            console.log('Element is ready');
+            console.log(elm.textContent);
+            elm.click()
+            console.log("AD SKIPPED")
+        });
+    })
+
+
 })
 
 function waitForElm(selector) {
