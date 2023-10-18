@@ -1,20 +1,34 @@
 window.addEventListener('load',()=>{
     //alert("LOADED")
+    //skip the skippable
     waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
-        console.log('Element is ready');
-        console.log(elm.textContent);
         elm.click()
-        console.log("AD SKIPPED")
+        console.log("Skippable skipped")
     });
-    //re apply promise on each click
+    //hide the unskippable
+    waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
+        var elm= document.querySelector(".video-stream.html5-main-video")
+        elm.src=""
+        console.log("Unskippable skipped")
+        var random_elm= document.querySelector(".style-scope.ytd-watch-metadata")
+        random_elm.click() //reapply promises also for unskippable which doesn't need a click
+
+    })
+    //re apply promises on each click
     window.addEventListener('click',()=>{
-        console.log("PROMISE REAPPLIED")
+        console.log("Promises reapplied")
+        //skip the skippable
         waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
-            console.log('Element is ready');
-            console.log(elm.textContent);
             elm.click()
-            console.log("AD SKIPPED")
+            console.log("Skippable skipped")
         });
+        //hide the unskippable
+        waitForElm('ytp-ad-player-overlay-instream-info').then((popup)=>{
+            var elm= document.querySelector(".video-stream.html5-main-video")
+            elm.src=""
+            console.log("Unskippable skipped")
+
+        })
     })
 
 
