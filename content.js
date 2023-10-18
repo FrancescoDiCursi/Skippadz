@@ -17,6 +17,7 @@ window.addEventListener('load',()=>{
             console.log("Unskippable skipped")
 
 
+
         })
     })
 
@@ -36,14 +37,14 @@ window.addEventListener('load',()=>{
         console.log("Unskippable skipped")
 
 
+
     })
 
 
+
+
     document.body.click()
     document.body.click()
-
-
-
 
 
 
