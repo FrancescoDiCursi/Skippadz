@@ -1,7 +1,9 @@
 # YT-ads-auto-skipper
-:warning: DISABLE ANY AD BLOCK ON YOUTUBE TO MAKE IT WORK.
 
 ℹ️ An extension to automatically skip ads.
+
+❗ DISABLE ANY AD BLOCK ON YOUTUBE TO MAKE IT WORK.
+
 ____
 ## :warning: currently in development
 It sometimes doesn't work with unskippable ads. In this case click a couple of times on a blank spot on the page then reload the page.
