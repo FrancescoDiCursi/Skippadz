@@ -11,7 +11,13 @@ window.addEventListener('load',()=>{
         elm.src=""
         console.log("Unskippable skipped")
         var random_elm= document.querySelector("#primary")
-        random_elm.click() //reapply promises also for unskippable which doesn't need a click
+        try{
+            random_elm.click() //reapply promises also for unskippable which doesn't need a click
+        }catch{
+            var random_elm= document.querySelector("#content")
+            random_elm.click() //reapply promises also for unskippable which doesn't need a click
+
+        }
 
     })
     //re apply promises on each click
@@ -28,7 +34,13 @@ window.addEventListener('load',()=>{
             elm.src=""
             console.log("Unskippable skipped")
             var random_elm= document.querySelector("#primary")
-            random_elm.click() //reapply promises also for unskippable which doesn't need a click
+            try{
+                random_elm.click() //reapply promises also for unskippable which doesn't need a click
+            }catch{
+                var random_elm= document.querySelector("#content")
+                random_elm.click() //reapply promises also for unskippable which doesn't need a click
+    
+            }
 
 
         })
