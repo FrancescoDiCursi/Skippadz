@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener('load',()=>{
     //alert("LOADED")
     //re apply promises on each click
     window.addEventListener('click',()=>{
@@ -10,12 +10,13 @@ window.addEventListener("DOMContentLoaded",()=>{
         });
         //hide the unskippable
         waitForElm('ytp-ad-player-overlay-instream-info').then((popup)=>{
-            var random_elm= document.querySelector("#primary")
-            random_elm.click()
+
 
             var elm= document.querySelector(".video-stream.html5-main-video")
             elm.src=""
             console.log("Unskippable skipped")
+            var random_elm= document.querySelector("#primary")
+            random_elm.click()
 
 
         })
@@ -29,12 +30,14 @@ window.addEventListener("DOMContentLoaded",()=>{
     });
     //hide the unskippable
     waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
-        var random_elm= document.querySelector("#primary")
-        random_elm.click()
+
         
         var elm= document.querySelector(".video-stream.html5-main-video")
         elm.src=""
         console.log("Unskippable skipped")
+
+        var random_elm= document.querySelector("#primary")
+        random_elm.click()
 
     })
 
