@@ -1,0 +1,36 @@
+{
+	"manifest_version" : 3,
+	"name" : "YT ads auto skipper",
+	"version" : "0.001",
+	"permissions":[
+        "webRequest",
+        "scripting",
+        "activeTab",
+        "tabs"
+    ],
+    "host_permissions":[
+        "<all_urls>"
+    ],
+    "background":{
+        "service_worker":"background.js",
+        "type":"module"
+    }
+    ,
+    "action" : {
+        "default_icon":"yt_img.png"
+    },
+    "content_scripts":[
+        {
+            "matches": ["https://www.youtube.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ]
+    ,
+    "icons":{
+        "16":"yt_img.png",
+        "48":"yt_img.png",
+        "128":"yt_img.png"
+    },
+    "description": "DISABLE ANY AD BLOCK ON YOUTUBE TO MAKE IT WORK. An extension to automatically skip ads when the ad's countdown reaches 0."
+}
