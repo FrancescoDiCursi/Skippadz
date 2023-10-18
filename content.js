@@ -10,8 +10,11 @@ window.addEventListener('load',()=>{
         var elm= document.querySelector(".video-stream.html5-main-video")
         elm.src=""
         console.log("Unskippable skipped")
-        var random_elm= document.querySelector(".style-scope.ytd-watch-metadata")
-        random_elm.click() //reapply promises also for unskippable which doesn't need a click
+
+        setTimeout(()=>{
+            var random_elm= document.querySelector(".style-scope.ytd-watch-metadata")
+            random_elm.click() //reapply promises also for unskippable which doesn't need a click
+        },1000)
 
     })
     //re apply promises on each click
@@ -27,6 +30,12 @@ window.addEventListener('load',()=>{
             var elm= document.querySelector(".video-stream.html5-main-video")
             elm.src=""
             console.log("Unskippable skipped")
+            setTimeout(()=>{
+                var random_elm= document.querySelector(".style-scope.ytd-watch-metadata")
+                random_elm.click() //reapply promises also for unskippable which doesn't need a click
+            },1000)
+            
+
 
         })
     })
