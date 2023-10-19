@@ -1,4 +1,4 @@
-# YT-ads-auto-skipper
+# Skippadz
 
 ℹ️ An extension to automatically skip ads.
 
