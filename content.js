@@ -5,7 +5,7 @@ window.addEventListener('load',()=>{
     //skip the skippable
         waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
             elm.click()
-            console.log("Skippable skipped")
+            //console.log("Skippable skipped")
         });
         //hide the unskippable
         waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
@@ -29,7 +29,7 @@ window.addEventListener('load',()=>{
                 }, 100*(i+1));
 
             }
-            console.log("Unskippable skipped")
+            //console.log("Unskippable skipped")
             //some ads, after being removed, pause the video. Press play.
     
     
@@ -40,7 +40,7 @@ window.addEventListener('load',()=>{
         //skip the skippable
         waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
             elm.click()
-            console.log("Skippable skipped")
+            //console.log("Skippable skipped")
         });
         //hide the unskippable
         waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
@@ -55,7 +55,7 @@ window.addEventListener('load',()=>{
                         waitForElm('.ytp-large-play-button.ytp-button').then((play_btn)=>{
                             setTimeout(()=>{
                                 var video_player= document.querySelector(".html5-video-player")
-                                console.log(video_player.className)
+                                //console.log(video_player.className)
                                 if(video_player.className.includes("paused-mode") || document.querySelector('.ytp-ad-preview-container')){
                                     play_btn.click()
                                 }
@@ -64,7 +64,7 @@ window.addEventListener('load',()=>{
                     }
                 }, 100*(i+1));
             }
-            console.log("Unskippable skipped")
+           // console.log("Unskippable skipped")
 
 
 
