@@ -1,6 +1,22 @@
 window.addEventListener('load',()=>{
     //alert("LOADED")
     //re apply promises on each click
+    //skip the skippable
+        waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
+            elm.click()
+            console.log("Skippable skipped")
+        });
+        //hide the unskippable
+        waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
+    
+    
+            var elm= document.querySelector(".video-stream.html5-main-video")
+            elm.src=""
+            console.log("Unskippable skipped")
+    
+    
+        })
+
     window.addEventListener('click',()=>{
         console.log("Promises reapplied")
         //skip the skippable
@@ -17,37 +33,13 @@ window.addEventListener('load',()=>{
             console.log("Unskippable skipped")
 
 
-
         })
     })
 
-    
-    
-    //skip the skippable
-    waitForElm('.ytp-ad-skip-button.ytp-button').then((elm) => {
-        elm.click()
-        console.log("Skippable skipped")
-    });
-    //hide the unskippable
-    waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
-
-
-        var elm= document.querySelector(".video-stream.html5-main-video")
-        elm.src=""
-        console.log("Unskippable skipped")
-
-
-
-    })
-
-
-
-
     document.body.click()
     document.body.click()
-
-
-
+    
+    
 })
 
 function waitForElm(selector) {
