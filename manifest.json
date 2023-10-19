@@ -1,6 +1,6 @@
 {
 	"manifest_version" : 3,
-	"name" : "YT ads auto skipper",
+	"name" : "Skippadz",
 	"version" : "0.001",
 	"permissions":[
         "webRequest",
@@ -32,5 +32,5 @@
         "48":"yt_img.png",
         "128":"yt_img.png"
     },
-    "description": "DISABLE ANY AD BLOCK ON YOUTUBE TO MAKE IT WORK. An extension to automatically skip YT ads."
+    "description": "An extension to automatically skip YT ads. DISABLE ANY ADBLOCKER ON YOUTUBE TO MAKE IT WORK."
 }
