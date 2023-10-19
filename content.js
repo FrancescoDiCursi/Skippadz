@@ -1,4 +1,5 @@
 window.addEventListener('load',()=>{
+    
     //alert("LOADED")
     //re apply promises on each click
     //skip the skippable
@@ -10,7 +11,7 @@ window.addEventListener('load',()=>{
         waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
     
     
-            for(let i=0; i<10;i++){
+            for(let i=0; i<21;i++){
                 var elm=document.querySelector(".video-stream.html5-main-video")
                 elm.src=""
             }
@@ -31,7 +32,7 @@ window.addEventListener('load',()=>{
         waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
 
 
-            for(let i=0; i<10;i++){
+            for(let i=0; i<21;i++){
                 var elm= document.querySelector(".video-stream.html5-main-video")
                 elm.src=""
                 console.log(i)
