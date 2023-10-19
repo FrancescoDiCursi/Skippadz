@@ -7,12 +7,15 @@ window.addEventListener('load',()=>{
             console.log("Skippable skipped")
         });
         //hide the unskippable
-        waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
+        waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
     
     
-            var elm= document.querySelector(".video-stream.html5-main-video")
-            elm.src=""
+            for(let i=0; i<10;i++){
+                var elm=document.querySelector(".video-stream.html5-main-video")
+                elm.src=""
+            }
             console.log("Unskippable skipped")
+            
     
     
         })
@@ -25,12 +28,16 @@ window.addEventListener('load',()=>{
             console.log("Skippable skipped")
         });
         //hide the unskippable
-        waitForElm('.ytp-ad-player-overlay-instream-info').then((popup)=>{
+        waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
 
 
-            var elm= document.querySelector(".video-stream.html5-main-video")
-            elm.src=""
+            for(let i=0; i<10;i++){
+                var elm= document.querySelector(".video-stream.html5-main-video")
+                elm.src=""
+                console.log(i)
+            }
             console.log("Unskippable skipped")
+
 
 
         })
@@ -39,6 +46,8 @@ window.addEventListener('load',()=>{
     document.body.click()
     document.body.click()
     
+    document.body.click()
+    document.body.click()
     
 })
 
