@@ -11,12 +11,26 @@ window.addEventListener('load',()=>{
         waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
     
     
-            for(let i=0; i<21;i++){
-                var elm=document.querySelector(".video-stream.html5-main-video")
-                elm.src=""
+            for(let i=0; i<31;i++){
+                setTimeout(() => {
+                    var elm=document.querySelector(".video-stream.html5-main-video")
+                    elm.src=""
+
+                    if(i==30){
+                        waitForElm('.ytp-large-play-button.ytp-button').then((play_btn)=>{
+                            setTimeout(()=>{
+                                var video_player= document.querySelector(".html5-video-player")
+                                if(video_player.className.includes("paused-mode")  || document.querySelector('.ytp-ad-preview-container')){
+                                    play_btn.click()
+                                }
+                            },3000)
+                        })
+                    }
+                }, 100*(i+1));
+
             }
             console.log("Unskippable skipped")
-            
+            //some ads, after being removed, pause the video. Press play.
     
     
         })
@@ -32,10 +46,23 @@ window.addEventListener('load',()=>{
         waitForElm('.ytp-ad-preview-container').then((popup)=>{ //.ytp-ad-player-overlay-instream-info
 
 
-            for(let i=0; i<21;i++){
-                var elm= document.querySelector(".video-stream.html5-main-video")
-                elm.src=""
-                console.log(i)
+            for(let i=0; i<31;i++){
+                setTimeout(() => {
+                    var elm=document.querySelector(".video-stream.html5-main-video")
+                    elm.src=""
+
+                    if(i==30){
+                        waitForElm('.ytp-large-play-button.ytp-button').then((play_btn)=>{
+                            setTimeout(()=>{
+                                var video_player= document.querySelector(".html5-video-player")
+                                console.log(video_player.className)
+                                if(video_player.className.includes("paused-mode") || document.querySelector('.ytp-ad-preview-container')){
+                                    play_btn.click()
+                                }
+                            },3000)
+                        })
+                    }
+                }, 100*(i+1));
             }
             console.log("Unskippable skipped")
 
