@@ -73,6 +73,11 @@ window.addEventListener('load',()=>{
     document.body.insertBefore(info_cont,  document.body.firstChild)
     document.body.insertBefore(state_cont, document.body.firstChild)
 
+    //reload the page if error
+    waitForElm(".ytp-error").then(()=>{
+        location.reload()
+    })
+
     var quality_click=false
     //alert("LOADED")
     //re apply promises on each click
@@ -97,7 +102,7 @@ window.addEventListener('load',()=>{
                     var elm=document.querySelector(".video-stream.html5-main-video")
                     elm.src=""
 
-                    if(i==30){
+                    if(i===30){
                         waitForElm('.ytp-large-play-button.ytp-button').then((play_btn)=>{
                             setTimeout(()=>{
                                 state.textContent="Adjusting the video quality... Please do not click until the process is done. (It may take up to 10 seconds)"
@@ -179,7 +184,7 @@ window.addEventListener('load',()=>{
                     var elm=document.querySelector(".video-stream.html5-main-video")
                     elm.src=""
 
-                    if(i==30){
+                    if(i===30){
                         waitForElm('.ytp-large-play-button.ytp-button').then((play_btn)=>{
                             setTimeout(()=>{
                                 state.textContent="Adjusting the video quality... Please do not click until the process is done. (It may take up to 10 seconds)"
