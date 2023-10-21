@@ -1,4 +1,5 @@
 # Skippadz
+![](https://github.com/FrancescoDiCursi/Skippadz/blob/main/skippadz_preview.gif?raw=true)
 
 ℹ️ An extension to automatically skip ads.
 
