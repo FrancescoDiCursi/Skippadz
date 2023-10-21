@@ -2,7 +2,12 @@ window.addEventListener('load',()=>{
     //add state bar
     var state_cont=document.createElement("div")
     var info_cont=document.createElement("div")
-    var video_width=document.querySelector("video").style.width
+    try{
+        var video_width=document.querySelector("video").style.width
+
+    }catch{
+        var video_width="700px"
+    }
     state_cont.style.width=video_width
     state_cont.style.backgroundColor="white"
     state_cont.style.border="1px solid black"
@@ -41,6 +46,8 @@ window.addEventListener('load',()=>{
     state.style.fontSize="20px"
     var info_reload= document.createElement("p")
     var info_reload2= document.createElement("p")
+    var info_reload3= document.createElement("p")
+
 
     info_reload.id="info_reload_text"
     info_reload.textContent="If the red message doesn't disappear, or for any other bug, reload the page."
@@ -52,11 +59,17 @@ window.addEventListener('load',()=>{
     info_reload2.style.color="blue"
     info_reload2.style.fontSize="16px"
     info_reload2.style.marginLeft="40px"
+    info_reload3.id="info_reload_text3"
+    info_reload3.textContent="Finally, if nothing works, close and open the browser."
+    info_reload3.style.color="blue"
+    info_reload3.style.fontSize="16px"
+    info_reload3.style.marginLeft="40px"
 
     state_cont.appendChild(icon)
     state_cont.appendChild(state)
     info_cont.appendChild(info_reload)
     info_cont.appendChild(info_reload2)
+    info_cont.appendChild(info_reload3)
     document.body.insertBefore(info_cont,  document.body.firstChild)
     document.body.insertBefore(state_cont, document.body.firstChild)
 
