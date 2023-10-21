@@ -6,7 +6,7 @@ window.addEventListener('load',()=>{
         var video_width=document.querySelector("video").style.width
 
     }catch{
-        var video_width="700px"
+        var video_width="1000px"
     }
     state_cont.style.width=video_width
     state_cont.style.backgroundColor="white"
