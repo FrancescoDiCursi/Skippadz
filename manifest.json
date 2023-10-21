@@ -1,7 +1,7 @@
 {
 	"manifest_version" : 3,
 	"name" : "Skippadz",
-	"version" : "0.004",
+	"version" : "0.005",
     "background":{
         "service_worker":"background.js",
         "type":"module"
@@ -10,9 +10,17 @@
     "action" : {
         "default_icon":"yt_img.png"
     },
+    "web_accessible_resources": [
+        {
+          "resources": [ "yt_img.png","style.css" ],
+          "matches": [ "https://www.youtube.com/*" ]
+        }
+      ]
+    ,
     "content_scripts":[
         {
             "matches": ["https://www.youtube.com/*"],
+            "css": ["style.css"],
             "js": ["content.js"],
             "run_at": "document_end"
         }
