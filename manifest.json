@@ -5,10 +5,15 @@
     "background":{
         "service_worker":"background.js",
         "type":"module"
-    }
+    },
+    "permissions":[
+        "storage"
+    ]
     ,
     "action" : {
-        "default_icon":"yt_img.png"
+        "default_icon":"yt_img.png",
+        "default_popup": "popup.html"
+
     },
     "web_accessible_resources": [
         {
