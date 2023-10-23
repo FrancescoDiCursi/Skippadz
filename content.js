@@ -92,34 +92,7 @@ function waitForElm(selector) {
     });
 }
 
-function reloadPage() {
 
-    // The last "domLoading" Time //
-    
-    var currentDocumentTimestamp =
-    
-    new Date(performance.timing.domLoading).getTime();
-    
-    // Current Time //
-    
-    var now = Date.now();
-    
-    // Ten Seconds //
-    
-    var tenSec = 10 * 1000;
-    
-    // Plus Ten Seconds //
-    
-    var plusTenSec = currentDocumentTimestamp + tenSec;
-    
-    if (now > plusTenSec) {
-    
-    location.reload();
-    
-    } else {}
-    
-    }
-    
 
     function skip_skippable(state_cont, info_cont, state, info_reload, info_reload2, info_reload3,quality_click,max_quality){
         //skip the skippable
