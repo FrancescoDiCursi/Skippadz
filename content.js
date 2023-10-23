@@ -1,7 +1,6 @@
 
 
     window.addEventListener('load',()=>{
-        
         chrome.storage.local.get("auto_quality_check").then((val)=>{
                 //add state bar
                 [state_cont, info_cont, state, info_reload, info_reload2, info_reload3] = add_nodes()
@@ -36,7 +35,39 @@
                 document.body.click()
 
 
+
         })
+
+
+        //time tracker
+        chrome.storage.local.get("time_tracker").then((val)=>{
+            var time_tracker_= val.time_tracker==="off" ?false :true
+
+            if(time_tracker_){
+                setInterval(()=>{
+                    //detect if video playing
+                    //if ads, do not excecute
+                    let skippable_sign=document.querySelector(".ytp-ad-skip-button.ytp-button")
+                    let unskippable_sign= document.querySelector(".ytp-ad-preview-container")
+                    if(skippable_sign===null && unskippable_sign===null){
+                        eval_time()
+                    }else{
+                        //
+                    }
+        
+                },15000)
+            }
+            
+            //reset storage time_tracker on yt-progress bar click!
+            //understand how to detect the click on the progress bar
+            //NOW: temporary workaround: if the current time is close to 0 (lower than 5) then reload the page with the storage value
+            //but now, if one clicks on 0, it may happen that the video is reloaded to the greater value saved in storage
+            //FIX THIS!
+            //document.querySelector(".ytp-progress-list").addEventListener("click",()=>{console.log("clicked")}) // NOT WORKING
+        })
+       
+
+      
         
     })
     
@@ -109,12 +140,12 @@ function reloadPage() {
             state_cont.style.visibility="visible"
             info_cont.style.visibility="visible"
             state.textContent="Removing ads... Please do not click until the process is done."
-            for(let i=0; i<21;i++){
+            for(let i=0; i<6;i++){
                 setTimeout(() => {
                     var elm=document.querySelector(".video-stream.html5-main-video")
                     elm.src=""
 
-                    if(i===20){
+                    if(i===5){
                         waitForElm('.ytp-large-play-button.ytp-button').then((play_btn)=>{
                             setTimeout(()=>{
                                 if(max_quality){
@@ -187,7 +218,7 @@ function reloadPage() {
                         })
                     }
 
-                }, 100*(i+1));
+                }, 10*(i+1));
 
             }
             //console.log("Unskippable skipped")
@@ -273,4 +304,75 @@ function add_nodes(){
     document.body.insertBefore(state_cont, document.body.firstChild)
 
     return [state_cont, info_cont, state, info_reload, info_reload2, info_reload3]
+}
+
+function eval_time(){
+    chrome.storage.local.get((strg)=>{
+    let strg_arr = strg.time_tracker_els
+    let curr_arr= track_time()
+    
+    console.log("TIMER")
+    console.log(strg_arr)
+    //console.log(whole_time_temp, curr_time_temp, video_title_temp)
+    console.log(curr_arr)
+
+    //handle
+    //if equal title, equal whole time AND current time lower than storage one and particularly curr time is close to 0, then the ad removal restarted the video.
+    //load the page at the saved seconds 
+    //CHECK FROM HERE!
+    if(curr_arr[-1]===strg_arr[-1] && curr_arr[0]===strg_arr[0] && curr_arr[1]<strg_arr[1] && curr_arr[1]<=5){ //
+        let current_url=window.location.href
+        let new_time=`&t=${strg_arr[1]+5}`
+        window.location.href=current_url+new_time
+    }
+    })
+}
+
+function track_time(save_to_strg=true){
+ //show the bottom bar
+ var opt_btn=document.querySelector(".ytp-button.ytp-settings-button")
+ opt_btn.click()
+ //retrieve time
+ var video_title=document.querySelector("h1.style-scope.ytd-watch-metadata")
+ var video_title_text= video_title.textContent.replace("\n","").trim()
+ var curr_time=document.querySelector(".ytp-time-current")
+ var curr_time_text= curr_time.textContent
+ var whole_time= document.querySelector(".ytp-time-duration")
+ var whole_time_text= whole_time.textContent
+
+ //convert
+ var curr_time_sec=convert_time_to_sec(curr_time_text)
+ var whole_time_sec=convert_time_to_sec(whole_time_text)
+
+ //save to storage
+ if(save_to_strg){
+    chrome.storage.local.set({"time_tracker_els":[whole_time_sec, curr_time_sec, video_title_text]})
+ }
+ opt_btn.click()
+
+ console.log("TRACK TIME DATA", [whole_time_sec,curr_time_sec,video_title_text])
+
+return [whole_time_sec,curr_time_sec,video_title_text]
+
+
+}
+
+function convert_time_to_sec(s){
+    var raw_time_list= s.split(":")
+    var hours=0
+    var minutes=0
+    var seconds=0
+    if (raw_time_list.length===2){
+        minutes= +raw_time_list[0]*60
+        seconds= +raw_time_list[1]
+
+    }else if (raw_time_list.length===3){
+        hours= +raw_time_list[0]*3600
+        minutes= +raw_time_list[1]*60
+        seconds= +raw_time_list[2]
+
+    }
+
+
+    return [hours, minutes, seconds].reduce((a,b)=>a+b,0)
 }
