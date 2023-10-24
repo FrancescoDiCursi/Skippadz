@@ -17,7 +17,7 @@ It may also happen due to long sessions.
 
 Close and open the browser as a last resort.
 
-Sorry for the inconvenients but this extension has been developed in relatively few time and things tend to change frequently at this point ([see more](https://www.reddit.com/r/youtube/comments/15zs7f4/youtube_premium_required_is_youtube_becoming_the/)).
+I'm sorry for the inconveniences but this extension has been developed in relatively few time and things tend to change frequently at this point ([see more](https://www.reddit.com/r/youtube/comments/15zs7f4/youtube_premium_required_is_youtube_becoming_the/)).
 
 I will try to fix it as soon as changes occur. 
 
