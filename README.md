@@ -8,12 +8,27 @@
 
 
 ![](https://github.com/FrancescoDiCursi/Skippadz/blob/main/skippadz_preview.gif?raw=true)
-
 ____
-## :warning: currently under development
+# :warning: currently under development
+
 "Zapping" through videos may cause memory leakage (i.e. the browser may crash).
 
 It may also happen due to long sessions.
 
 Close and open the browser as a last resort.
 
+## Experimental features
+
+By clicking on the extension's icon, the user can choose to:
+
+1 - **automatically adjust the video quality** after ads removal (because sometimes YouTube returns the lowest quality after the removal
+
+2 - **automatically bring back the video to the right time** after ads removal (as for the previous point but restarting the video instead);
+
+**These functions are still experimental** and they may be buggy. In particular, following the same order:
+
+1 - It sometimes doesn't adjust the video quality and the info box does not disappear (simply refreshing the page shoud fix the problem)
+
+2 - It always works but, at the moment, if the user is watching a video and returns to its beginning, the extension will reload the page but with the last (greatest) time.
+
+____
