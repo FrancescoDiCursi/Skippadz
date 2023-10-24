@@ -24,7 +24,7 @@ I will try to fix it as soon as changes occur.
 ## :gear: Experimental features
 Remember: reload the extension or restart the browser to apply the changes!
 
-**By clicking on the extension's icon, the user can choose to:
+**By clicking on the extension's icon**, the user can choose to:
 
 1 -  **[DISCOURAGED] automatically adjust the video quality** after ads removal (because sometimes YouTube returns the lowest quality after the removal
 
