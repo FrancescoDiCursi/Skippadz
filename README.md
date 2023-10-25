@@ -25,9 +25,9 @@ I will try to fix it as soon as changes occur.
 
 **By clicking on the extension's icon**, the user can choose to:
 
-1 -  **[DISCOURAGED] automatically adjust the video quality** after ads removal (because sometimes YouTube returns the lowest quality after the removal
+1 -  **[DISCOURAGED] automatically adjust the video quality** after ads removal (because sometimes YouTube returns the lowest quality after the removal);
 
-2 - **[SUGGESTED] automatically bring back the video to the right time** after ads removal (as for the previous point but restarting the video instead);
+2 - **[SUGGESTED] automatically bring back the video to the right time** after ads removal (as for the previous point but restarting the video instead).
 
 **These functions are still experimental** and they may be buggy. In particular, following the same order:
 
