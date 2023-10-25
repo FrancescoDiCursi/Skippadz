@@ -22,7 +22,6 @@ I'm sorry for the inconveniences but this extension has been developed in relati
 I will try to fix it as soon as changes occur. 
 
 ## :gear: Experimental features
-Remember: reload the extension or restart the browser to apply the changes!
 
 **By clicking on the extension's icon**, the user can choose to:
 
